@@ -136,17 +136,14 @@ Only claim the SSH and MongoDB parts after you personally complete and verify th
 
 ## Live Demo
 
-- **Frontend:** [DeployDesk — Live on Vercel](https://deploy-desk-node-js-deployment-lab-sage.vercel.app)
-- **Backend Health Check:** [Render API](https://deploydesk-nodejs-deployment-lab.onrender.com/api/health)
-- **Source Code:** [GitHub Repository](https://github.com/SUDHEEKSHA007/DeployDesk-NodeJS-Deployment-Lab)
+- **Frontend (Vercel):** [DeployDesk — Live on Vercel](https://deploy-desk-node-js-deployment-lab-sage.vercel.app)
+- **Backend (Render):** [Render API Health Check](https://deploydesk-nodejs-deployment-lab.onrender.com/api/health)
+- **Source Code (GitHub):** [GitHub Repository](https://github.com/SUDHEEKSHA007/DeployDesk-NodeJS-Deployment-Lab)
 
 ## Architecture
 
-- **Frontend:** HTML, CSS, JavaScript — deployed on Vercel.
-- **Backend:** Node.js and Express — deployed on Render.
-- **API:** REST endpoints for creating, viewing, updating, and deleting tasks.
-- **Storage:** Local JSON storage for this learning project.
+- **Frontend:** HTML5, CSS3, Vanilla JavaScript — deployed on [Vercel](https://vercel.com).
+- **Backend:** Node.js & Express REST API with CORS support — deployed on [Render](https://render.com).
+- **API Endpoints:** REST endpoints for creating, listing, updating, and deleting tasks (`/api/tasks`, `/api/health`).
+- **Storage:** Local JSON storage with optional MongoDB Atlas persistence via `MONGODB_URI`.
 
-The frontend sends HTTP requests to the Render backend to perform task operations.
-
-**Note:** The Render free instance may spin down when inactive, and local JSON data may not persist across restarts or redeployments.

@@ -5,13 +5,30 @@ const path = require("path");
 const fs = require("fs/promises");
 const mongoose = require("mongoose");
 
+const fsSync = require("fs");
+
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 const DATA_DIR = path.join(__dirname, "data");
 const DATA_FILE = path.join(DATA_DIR, "tasks.json");
 
+// CORS middleware to allow requests from frontend (e.g. Vercel)
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
 app.use(express.json({ limit: "100kb" }));
-app.use(express.static(path.join(__dirname, "public")));
+
+const staticDir = fsSync.existsSync(path.join(__dirname, "public", "index.html"))
+  ? path.join(__dirname, "public")
+  : __dirname;
+app.use(express.static(staticDir));
 
 const TaskSchema = new mongoose.Schema(
   {
@@ -171,7 +188,10 @@ app.delete("/api/tasks/:id", async (req, res, next) => {
 
 app.get("*", (req, res, next) => {
   if (req.path.startsWith("/api/")) return res.status(404).json({ error: "API route not found." });
-  res.sendFile(path.join(__dirname, "public", "index.html"), error => { if (error) next(error); });
+  const indexFile = fsSync.existsSync(path.join(__dirname, "public", "index.html"))
+    ? path.join(__dirname, "public", "index.html")
+    : path.join(__dirname, "index.html");
+  res.sendFile(indexFile, error => { if (error) next(error); });
 });
 
 app.use((error, _req, res, _next) => {
