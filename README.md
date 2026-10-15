@@ -133,3 +133,20 @@ SSH key authentication means your client proves possession of a private key corr
 - Practised passwordless SSH on an authorized Ubuntu environment, including key management and file permissions, if completed.
 
 Only claim the SSH and MongoDB parts after you personally complete and verify those steps.
+
+## Live Demo
+
+- **Frontend:** [DeployDesk — Live on Vercel](https://deploy-desk-node-js-deployment-lab-sage.vercel.app)
+- **Backend Health Check:** [Render API](https://deploydesk-nodejs-deployment-lab.onrender.com/api/health)
+- **Source Code:** [GitHub Repository](https://github.com/SUDHEEKSHA007/DeployDesk-NodeJS-Deployment-Lab)
+
+## Architecture
+
+- **Frontend:** HTML, CSS, JavaScript — deployed on Vercel.
+- **Backend:** Node.js and Express — deployed on Render.
+- **API:** REST endpoints for creating, viewing, updating, and deleting tasks.
+- **Storage:** Local JSON storage for this learning project.
+
+The frontend sends HTTP requests to the Render backend to perform task operations.
+
+**Note:** The Render free instance may spin down when inactive, and local JSON data may not persist across restarts or redeployments.
