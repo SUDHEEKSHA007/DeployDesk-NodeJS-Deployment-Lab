@@ -1,3 +1,4 @@
+const API_BASE_URL = "https://deploydesk-nodejs-deployment-lab.onrender.com";
 const taskList = document.querySelector("#taskList");
 const taskDialog = document.querySelector("#taskDialog");
 const taskForm = document.querySelector("#taskForm");
@@ -13,7 +14,7 @@ const statusLabels = { todo: "To do", "in-progress": "In progress", done: "Compl
 const priorityLabels = { low: "Low priority", medium: "Medium priority", high: "High priority" };
 
 async function api(path, options = {}) {
-  const response = await fetch(path, {
+  const response = await fetch(`${API_BASE_URL}${path}`, {
     ...options,
     headers: { "Content-Type": "application/json", ...(options.headers || {}) }
   });
