@@ -125,15 +125,6 @@ SSH key authentication means your client proves possession of a private key corr
 6. Practise passwordless SSH separately on an Ubuntu VM.
 7. Add automated tests and a GitHub Actions workflow as a later milestone.
 
-## Resume wording — use only after completing the relevant work
-
-**Node.js CRUD Application & Cloud Deployment | Node.js, Express, REST API, GitHub, Render**
-- Built a responsive Node.js/Express CRUD application with input validation, health checks, and a task dashboard.
-- Published the source to GitHub and deployed the application to Render; configured MongoDB Atlas for persistent data if completed.
-- Practised passwordless SSH on an authorized Ubuntu environment, including key management and file permissions, if completed.
-
-Only claim the SSH and MongoDB parts after you personally complete and verify those steps.
-
 ## Live Demo
 
 - **Frontend (Vercel):** [DeployDesk — Live on Vercel](https://deploy-desk-node-js-deployment-lab-sage.vercel.app)
